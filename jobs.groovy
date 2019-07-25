@@ -26,8 +26,8 @@ def selectedBranches = command.execute().text.readLines().collect {it.split()[1]
         github('konstantinskorin/d323dsl', 'kskorin')
       }
       def allBranches = command.execute().text.readLines().collect {it.split()[1].replaceAll('refs/heads/', '')}
-      allBranches.remove('kskorin')
-      allBranches.add(0,'kskorin')
+      allBranches.remove(kskorin)
+      allBranches.add(0,kskorin)
       parameters {
         choiceParam('BRANCH_NAME',  allBranches,'')
       }
